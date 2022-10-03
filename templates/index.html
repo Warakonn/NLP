@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website</title>
+    <meta charset="UTF-8">
+    <style>
+      .button {
+      border: none;
+      color: white;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+       margin: 4px 2px;
+      cursor: pointer;
+      padding: 12px 28px;
+      background-color: #4CAF50;
+      }
+  </style>
+</head>
+<body>
+<center>
+  
+<form class="imgForm" action="/upload" method="post" enctype="multipart/form-data">
+  ช่องค้นหาคำ <br><input type="text" name="wordsearch"/><br><br>
+    <input type="file" name="filename"/><br>
+    <input class= "button" type="submit"  name="save"  value="upload" />
+  </form>
+    <div>{{wordcount}}</div><br>
+    <div>{{tfidfwg}}</div><br></center>
+    <center>
+    <form class="form-horizontal" action="/show" method="post" enctype="multipart/form-data">
+        <div>
+          <table>
+            <tr>
+              <td>
+            <input type="checkbox" name="op" value="PERSON">
+            <label> PERSON</label>
+             </td>
+             <td>
+            <input type="checkbox" name="op" value="NORP">
+            <label> NORP</label></td>
+            <td>
+            <input type="checkbox" name="op" value="FAC">
+            <label> FAC</label></td>
+            <td>
+            <input type="checkbox" name="op" value="ORG">
+            <label> ORG</label></td>
+            <td>
+            <input type="checkbox" name="op" value="GPE">
+            <label> GPE</label></td>
+            <td>
+            <input type="checkbox" name="op" value="LOC">
+            <label> LOC</label></td>
+          </tr>
+          <tr>
+            <td>
+            <input type="checkbox" name="op" value="PRODUCT">
+            <label> PRODUCT</label></td>
+            <td>
+            <input type="checkbox" name="op" value="EVENT">
+            <label> EVENT</label></td>
+            <td>
+            <input type="checkbox" name="op" value="WORK_OF_ART">
+            <label> WORK_OF_ART</label></td>
+            <td>
+            <input type="checkbox" name="op" value="LAW">
+            <label> LAW</label></td>
+            <td>
+            <input type="checkbox" name="op" value="LANGUAGE">
+            <label> LANGUAGE</label></td>
+            <td>
+            <input type="checkbox" name="op" value="DATE">
+            <label> DATE</label></td>
+          </tr>
+          <tr>
+            <td>
+            <input type="checkbox" name="op" value="TIME">
+            <label> TIME</label></td>
+            <td>
+            <input type="checkbox" name="op" value="PERCENT">
+            <label> PERCENT</label></td>
+            <td>
+            <input type="checkbox" name="op" value="MONEY">
+            <label> MONEY</label></td>
+            <td>
+            <input type="checkbox" name="op" value="QUANTITY">
+            <label> QUANTITY</label></td>
+            <td>
+            <input type="checkbox" name="op" value="ORDINAL">
+            <labe> ORDINAL</labe></td>
+            <td>
+            <input type="checkbox" name="op" value="CARDINAL">
+            <label> CARDINAL</label></td>
+          </tr>
+          </table><br>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="button" align="center" name="show" id="show" value="show"> Show Text</button>
+                </div>
+            </div>
+        </div>
+      </form></center>
+      <center>
+      <form class="form-horizontal" action="/search" method="post" enctype="multipart/form-data">
+        <div class="input-group">
+          <input type="text" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" name="wordsearch" id="wordsearch" required />
+          <button type="submit" class="btn btn-outline-primary"name = "search"id="search"value="search">search</button>
+        </div>
+      </form></center>
+      <div >  text :</div>
+      <div > <h4><p align = 'center'>{{articles}}</p></h4> </div>
+      <br>
+      <center>
+    <h2>คำที่ค้นหา{{search_word}}</h2>
+    <div><br><br><br><br>
+      <form class="form-horizontal" action="/Model" method="post" enctype="multipart/form-data">
+          <div class="mb-md-1">
+            <textarea  id="texta" name="text_area" rows="4" cols="50" placeholder="Enter Your news here..."></textarea><br><br>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-outline-info" name="TEST" id="TEST">submit</button><br><br>
+          </div>
+          <br><br>
+      <h1><div>{{model_T}}</div></h1>
+    
+      </form>
+    </div>
+      </center>
+</body>
+</html>
